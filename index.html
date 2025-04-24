@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Royal Kings</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #000;
+      font-family: 'Arial', sans-serif;
+      color: #FFD700;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin: 30px 20px;
+      text-shadow: 0 0 15px #FFD700;
+      animation: shine 2s infinite alternate;
+    }
+
+    @keyframes shine {
+      0% { text-shadow: 0 0 5px #FFD700; }
+      100% { text-shadow: 0 0 25px #FFD700, 0 0 50px #FFD700; }
+    }
+
+    .logo {
+      display: block;
+      margin: 30px auto;
+      width: 180px;
+      height: auto;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+
+
+
+    .carousel img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 15px;
+      border: 1px solid #FFD700;
+      transition: transform 0.5s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .carousel img:hover {
+      transform: scale(1.1);
+      z-index: 10;
+    }
+
+    /* WhatsApp Button */
+    .whatsapp-btn {
+      display: block;
+      width: 90%;
+      max-width: 350px;
+      margin: 30px auto;
+      padding: 15px 30px;
+      background: linear-gradient(45deg, #FFD700, #FFA500);
+      color: black;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-align: center;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 0 20px #FFD700;
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px #FFD700;
+    }
+
+    /* Redes Sociales */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 30px 0;
+    }
+
+    .social-icons a {
+      color: #FFD700;
+      font-size: 2rem;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      color: #FFA500;
+      text-shadow: 0 0 10px #FFD700;
+    }
+
+    /* Particles */
+    .particles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    #online-users {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-top: 5px;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 0 10px #ffffff;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.card {
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  box-shadow: 0 0 20px #FFD700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.card-back {
+  background-color: #111;
+  color: #FFD700;
+  transform: rotateY(180deg);
+  text-align: center;
+  padding: 20px;
+}
+
+.carousel {
+      display: flex;
+      justify-content: center; /* Centra las cards horizontalmente */
+      align-items: center;     /* Alinea las cards verticalmente */
+      gap: 30px;               /* Espacio entre las cards */
+      margin: 50px 0;
+      position: relative;
+      padding: 0 20px;
+    }
+    /* -------------------- MEDIA QUERIES -------------------- */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8rem;
+        margin-top: 20px;
+      }
+      .logo {
+        width: 130px;
+      }
+      .carousel {
+        flex-wrap: wrap;
+      }
+      .carousel img {
+        max-width: 100%;
+        margin-bottom: 20px;
+      }
+      .whatsapp-btn {
+        font-size: 1rem;
+      }
+      .social-icons {
+        gap: 20px;
+      }
+    }
+
+
+    .card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+  </style>
+</head>
+<body>
+  <div id="online-users">
+    Usuarios Online Participando: <span id="user-count">1559</span>
+  </div>
+  <h1>Bienvenido a Royal Kings Exclusive</h1>
+  <img src="logo.png" alt="Logo Casino" class="logo" loading="lazy">
+
+  <a href="https://wa.me/549XXXXXXXXXX" class="whatsapp-btn" target="_blank">¡Reservá tu lugar en WhatsApp!</a>
+<div class = "carousel" id="carousel">
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="logo.png" alt="Juego 1" loading="lazy">
+      </div>
+
+
+      <div class="card-back">
+        <p>Este es el juego 1. ¡Ganancias épicas y diversión asegurada!</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="logo.png" alt="Juego 1" loading="lazy">
+      </div>
+      <div class="card-back">
+        <p>Este es el juego 1. ¡Ganancias épicas y diversión asegurada!</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="logo.png" alt="Juego 1" loading="lazy">
+      </div>
+      <div class="card-back">
+        <p>Este es el juego 1. ¡Ganancias épicas y diversión asegurada!</p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <div class="social-icons">
+    <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+  </div>
+
+  <canvas class="particles"></canvas>
+
+  <script>
+    // Partículas doradas
+    const canvas = document.querySelector('.particles');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+  
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+  
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      createParticles(); // recreamos partículas para que se adapten
+    });
+  
+    resizeCanvas();
+  
+    function createParticles() {
+      particles = [];
+      for (let i = 0; i < 80; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 2 + 1,
+          dx: (Math.random() - 0.5) * 0.5,
+          dy: (Math.random() - 0.5) * 0.5,
+        });
+      }
+    }
+  
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = '#FFD70088';
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      }
+    }
+  
+    function animate() {
+      drawParticles();
+      requestAnimationFrame(animate);
+    }
+  
+    createParticles();
+    animate(); // animación infinita fluida
+  </script>
+  
+
+
+<script>
+  let userCount = 1559;
+  const userCountEl = document.getElementById('user-count');
+
+  function updateUserCount() {
+    // Simula un cambio entre -30 y +40
+    let randomChange = Math.floor(Math.random() * 70) - 30;
+    userCount += randomChange;
+
+    // Asegurarse de que no baje de 1200 o suba de 1800
+    if (userCount < 1200) userCount = 1200;
+    if (userCount > 1800) userCount = 1800;
+
+    userCountEl.textContent = userCount.toLocaleString();
+  }
+
+  setInterval(updateUserCount, Math.random() * 3000 + 3000); // cada 3 a 6 segundos
+</script>
+
+<script>
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      card.querySelector('.card-inner').classList.toggle('flipped');
+    });
+  });
+</script>
+</body>
+</html>
+
