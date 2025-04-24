@@ -223,42 +223,46 @@
   <h1>Bienvenido a Royal Kings Exclusive</h1>
   <img src="logo.png" alt="Logo Casino" class="logo" loading="lazy">
 
-  <a href="https://wa.me/549XXXXXXXXXX" class="whatsapp-btn" target="_blank">¡Reservá tu lugar en WhatsApp!</a>
+  <a href="https://wa.me/549XXXXXXXXXX" class="whatsapp-btn" target="_blank">¡Quiero Mi Usuario!</a>
 <div class = "carousel" id="carousel">
   <div class="card">
     <div class="card-inner">
       <div class="card-front">
-        <img src="logo.png" alt="Juego 1" loading="lazy">
+        <img src="ret.png" alt="Juego 1" loading="lazy">
       </div>
 
 
       <div class="card-back">
-        <p>Este es el juego 1. ¡Ganancias épicas y diversión asegurada!</p>
+        <p>Todos nuestros retiros son al instante!</p>
       </div>
     </div>
   </div>
   <div class="card">
     <div class="card-inner">
       <div class="card-front">
-        <img src="logo.png" alt="Juego 1" loading="lazy">
+        <img src="qsss.png" alt="Juego 1" loading="lazy">
       </div>
       <div class="card-back">
-        <p>Este es el juego 1. ¡Ganancias épicas y diversión asegurada!</p>
+        <p>Somos Royal Kings entretenimiento premium +18</p>
       </div>
     </div>
   </div>
   <div class="card">
     <div class="card-inner">
       <div class="card-front">
-        <img src="logo.png" alt="Juego 1" loading="lazy">
+        <img src="pq.png" alt="Juego 1" loading="lazy">
       </div>
       <div class="card-back">
-        <p>Este es el juego 1. ¡Ganancias épicas y diversión asegurada!</p>
+        <p>Estamos pendientes de que te diviertas en las mejores plataformas y maquinas</p>
       </div>
     </div>
   </div>
 </div>
   
+<br>
+<br>
+<br>
+<br>
 
   <div class="social-icons">
     <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -347,14 +351,18 @@
 document.querySelectorAll('.card').forEach(card => {
   const inner = card.querySelector('.card-inner');
 
-  card.addEventListener('click', () => {
-    // Alternar la clase 'flipped' para rotar la tarjeta
+  // Manejar clics y toques
+  card.addEventListener('click', toggleFlip);
+  card.addEventListener('touchstart', toggleFlip);
+
+  function toggleFlip(event) {
+    event.preventDefault(); // Evita comportamientos no deseados en dispositivos táctiles
     if (inner.classList.contains('flipped')) {
       inner.classList.remove('flipped');
     } else {
       inner.classList.add('flipped');
     }
-  });
+  }
 });
 </script>
 </body>
