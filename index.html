@@ -174,7 +174,8 @@
 .carousel {
       display: flex;
       justify-content: center; /* Centra las cards horizontalmente */
-      align-items: center;     /* Alinea las cards verticalmente */
+      align-items: center; 
+      flex-wrap: wrap;   /* Alinea las cards verticalmente */
       gap: 30px;               /* Espacio entre las cards */
       margin: 50px 0;
       position: relative;
@@ -202,6 +203,10 @@
       .social-icons {
         gap: 20px;
       }
+    }
+    .card{
+      width: 90%;
+      max-width: 300px;
     }
 
 
@@ -339,12 +344,18 @@
 </script>
 
 <script>
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => {
-      const inner = card.querySelector('.card-inner');
-      inner.classList.toggle('flipped');
-    });
+document.querySelectorAll('.card').forEach(card => {
+  const inner = card.querySelector('.card-inner');
+
+  card.addEventListener('click', () => {
+    // Alternar la clase 'flipped' para rotar la tarjeta
+    if (inner.classList.contains('flipped')) {
+      inner.classList.remove('flipped');
+    } else {
+      inner.classList.add('flipped');
+    }
   });
+});
 </script>
 </body>
 </html>
